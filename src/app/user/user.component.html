@@ -1,0 +1,44 @@
+<!-- user.component.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+<h2>Lista de Usuarios</h2>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.name }} - {{ user.email }}
+    <button (click)="editUser(user)">Editar</button>
+    <button (click)="deleteUser(user.id)">Eliminar</button>
+  </li>
+</ul>
+
+<h2>Agregar Usuario</h2>
+<form>
+    <input type="text" [(ngModel)]="newUser.first_name" placeholder="Nombres" name="first_name">
+    <input type="text" [(ngModel)]="newUser.last_name" placeholder="Apellidos" name="last_name">
+    <select [(ngModel)]="newUser.document_type" name="document_type" class="custom-select">
+      <option value="CC">Cédula de Ciudadanía</option>
+      <option value="TI">Tarjeta de Identidad</option>
+      <option value="CE">Cédula de Extranjería</option>
+    </select>
+    <input type="text" [(ngModel)]="newUser.document_number" placeholder="Número de documento" name="document_number">
+    <input type="text" [(ngModel)]="newUser.birth_place" placeholder="Lugar de nacimiento" name="birth_place">
+    <input type="date" [(ngModel)]="newUser.birth_date" name="birth_date">
+    <input type="email" [(ngModel)]="newUser.email" placeholder="Email" name="email">
+    <input type="tel" [(ngModel)]="newUser.phone" placeholder="Teléfono" name="phone">
+    <input type="text" [(ngModel)]="newUser.username" placeholder="Usuario" name="username">
+    <input type="password" [(ngModel)]="newUser.password" placeholder="Contraseña" name="password">
+  
+
+    <button (click)="addUser()">Crear Usuario</button>
+  </form>
+  
+
+ </body>
+ </html>
+
+
